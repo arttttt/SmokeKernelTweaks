@@ -6,7 +6,7 @@ import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import com.arttttt.smokekerneltweaks.R
-import com.arttttt.smokekerneltweaks.ui.fragments.FragmentAbout
+import com.arttttt.smokekerneltweaks.ui.fragments.FragmentDevice
 import com.arttttt.smokekerneltweaks.ui.fragments.FragmentCpu
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     private fun initFirstFragment() {
         supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.fragmentContainer, FragmentAbout.getInstance())
+                .replace(R.id.fragmentContainer, FragmentDevice.getInstance())
                 .commit()
 
         val item = nav_view.menu.getItem(0)
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
             when (item.itemId) {
                 R.id.nav_device -> {
-                    fragment = FragmentAbout.getInstance()
+                    fragment = FragmentDevice.getInstance()
                 }
                 R.id.nav_cpu -> {
                     fragment = FragmentCpu.getInstance()

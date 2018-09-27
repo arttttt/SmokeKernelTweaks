@@ -11,16 +11,16 @@ import com.arttttt.smokekerneltweaks.ui.base.FragmentBase
 import com.arttttt.smokekerneltweaks.utils.PermissionsManager
 import com.arttttt.smokekerneltweaks.viewmodels.ViewModelAbout
 
-class FragmentAbout: FragmentBase<ViewModelAbout, FragmentAboutBinding>() {
+class FragmentDevice: FragmentBase<ViewModelAbout, FragmentAboutBinding>() {
 
     companion object {
-        private var INSTANCE: FragmentAbout? = null
+        private var INSTANCE: FragmentDevice? = null
 
-        fun getInstance(): FragmentAbout {
+        fun getInstance(): FragmentDevice {
             if (INSTANCE == null)
-                INSTANCE = FragmentAbout()
+                INSTANCE = FragmentDevice()
 
-            return INSTANCE as FragmentAbout
+            return INSTANCE as FragmentDevice
         }
     }
 
