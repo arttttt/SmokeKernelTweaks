@@ -24,5 +24,5 @@ class FragmentDisplay: FragmentBase<ViewModelDisplay, FragmentDisplayBinding>() 
 
     override fun getLayoutRes() = R.layout.fragment_display
 
-    override fun getBindingVariable() = BR.cpuViewModel
+    override fun getBindingVariable() = BR.displayViewModel
 }
