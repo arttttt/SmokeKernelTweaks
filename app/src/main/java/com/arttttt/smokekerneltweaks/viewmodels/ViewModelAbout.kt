@@ -1,13 +1,12 @@
 package com.arttttt.smokekerneltweaks.viewmodels
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.os.Build
 import com.arttttt.smokekerneltweaks.R
-import com.arttttt.smokekerneltweaks.models.DeviceData
-import com.arttttt.smokekerneltweaks.models.RomData
+import com.arttttt.smokekerneltweaks.data.DeviceData
+import com.arttttt.smokekerneltweaks.data.RomData
 import com.arttttt.smokekerneltweaks.utils.PermissionsManager
 
 class ViewModelAbout(application: Application) : AndroidViewModel(application) {

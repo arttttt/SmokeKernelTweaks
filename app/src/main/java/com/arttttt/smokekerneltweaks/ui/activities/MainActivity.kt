@@ -7,7 +7,7 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import com.arttttt.smokekerneltweaks.R
 import com.arttttt.smokekerneltweaks.ui.fragments.FragmentDevice
-import com.arttttt.smokekerneltweaks.ui.fragments.FragmentCpu
+import com.arttttt.smokekerneltweaks.ui.fragments.FragmentDisplay
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                     fragment = FragmentDevice.getInstance()
                 }
                 R.id.nav_cpu -> {
-                    fragment = FragmentCpu.getInstance()
+                    fragment = FragmentDisplay.getInstance()
                 }
             }
 

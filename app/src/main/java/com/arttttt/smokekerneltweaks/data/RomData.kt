@@ -1,4 +1,4 @@
-package com.arttttt.smokekerneltweaks.models
+package com.arttttt.smokekerneltweaks.data
 
 import android.os.Build
 import java.text.DateFormat

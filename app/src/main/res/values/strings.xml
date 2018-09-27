@@ -11,7 +11,7 @@
     <string name="nav_header_desc">Navigation header</string>
 
     <string name="nav_device_fragment_title">Device</string>
-    <string name="nav_cpu_fragment_title">CPU</string>
+    <string name="nav_display_fragment_title">Display</string>
 
     <string name="device_information_label">Device information</string>
     <string name="device_name_label">Device name</string>

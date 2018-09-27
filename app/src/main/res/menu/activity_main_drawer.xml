@@ -10,7 +10,7 @@
 
         <item
             android:id="@+id/nav_cpu"
-            android:title="@string/nav_cpu_fragment_title" />
+            android:title="@string/nav_display_fragment_title" />
     </group>
 
 </menu>
