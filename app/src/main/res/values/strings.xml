@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">SmokeKernel tweaks</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="nav_device_fragment_title">Device</string>
+    <string name="nav_cpu_fragment_title">CPU</string>
+
+    <string name="device_information_label">Device information</string>
+    <string name="device_name_label">Device name</string>
+    <string name="codename_label">Codename</string>
+    <string name="serial_label">Serial</string>
+    <string name="android_version_label">Android version</string>
+    <string name="security_patch_label">Security patch</string>
+    <string name="build_date_label">Build date</string>
+
+    <string name="rom_information_label">ROM information</string>
+
+    <string name="permission_grant_button_text"> GRANT</string>
+
+    <string name="permission_grant_failed">PERMISSION IS NOT GRANTED</string>
+</resources>
