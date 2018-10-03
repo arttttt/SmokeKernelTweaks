@@ -9,20 +9,12 @@ import com.arttttt.smokekerneltweaks.R
 import com.arttttt.smokekerneltweaks.databinding.FragmentAboutBinding
 import com.arttttt.smokekerneltweaks.ui.base.FragmentBase
 import com.arttttt.smokekerneltweaks.utils.PermissionsManager
+import com.arttttt.smokekerneltweaks.base.SingletonHolder
 import com.arttttt.smokekerneltweaks.viewmodels.ViewModelAbout
 
 class FragmentDevice: FragmentBase<ViewModelAbout, FragmentAboutBinding>() {
 
-    companion object {
-        private var INSTANCE: FragmentDevice? = null
-
-        fun getInstance(): FragmentDevice {
-            if (INSTANCE == null)
-                INSTANCE = FragmentDevice()
-
-            return INSTANCE as FragmentDevice
-        }
-    }
+    companion object : SingletonHolder<FragmentDevice>(::FragmentDevice)
 
     override val mViewModel by lazy { ViewModelProviders.of(this).get(ViewModelAbout::class.java) }
 

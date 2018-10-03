@@ -6,18 +6,10 @@ import android.content.pm.PackageManager
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
+import com.arttttt.smokekerneltweaks.base.SingletonHolder
 
 class PermissionsManager private constructor() {
-    companion object {
-        private var INSTANCE: PermissionsManager? = null
-
-        fun getInstance(): PermissionsManager {
-            if (INSTANCE == null)
-                INSTANCE = PermissionsManager()
-
-            return INSTANCE as PermissionsManager
-        }
-    }
+    companion object : SingletonHolder<PermissionsManager>(::PermissionsManager)
 
     fun checkPermission(context: Context, permission: String): Boolean {
         return (ContextCompat.checkSelfPermission(context, permission)
