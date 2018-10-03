@@ -1,6 +1,5 @@
 package com.arttttt.smokekerneltweaks.data
 
-import android.databinding.ObservableField
 import android.os.Build
 
 class DeviceData {
@@ -8,5 +7,4 @@ class DeviceData {
         get() = Build.MODEL
     val codename: String
         get() = Build.DEVICE
-    val deviceSerial = ObservableField<String>()
 }
