@@ -20,7 +20,9 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         initNavigationView()
-        initFirstFragment()
+
+        if (savedInstanceState == null)
+            initFirstFragment()
     }
 
     override fun onBackPressed() {
