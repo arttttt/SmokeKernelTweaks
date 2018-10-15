@@ -26,4 +26,8 @@
     <string name="permission_grant_button_text"> GRANT</string>
 
     <string name="permission_grant_failed">PERMISSION IS NOT GRANTED</string>
+
+    <string name="startup_status_text">Trying to get root access</string>
+    <string name="root_access_success">Root access successfully gotten</string>
+    <string name="root_access_fail">Can\'t get root access</string>
 </resources>
