@@ -8,7 +8,8 @@ import java.lang.StringBuilder
 class SU private constructor(){
     companion object : SingletonHolder<SU>(::SU)
 
-    private var mRootAccess: Boolean = false
+    private var mDenied = false
+    private var mFirstTry = true
     private var mProcess: Process? = null
     private var mWriter: BufferedWriter? = null
     private var mReader: BufferedReader? = null
@@ -21,23 +22,23 @@ class SU private constructor(){
                 mReader = BufferedReader(InputStreamReader(process.inputStream))
 
                 mProcess = process
-
-                mRootAccess = true
             }
         }
         catch (e: IOException) {
-            mRootAccess = false
+            mDenied = true
             e.printStackTrace()
         }
     }
 
-    fun getRootAccess() {
+    fun getRootAccess(): Boolean = let {
         runCommand("echo /testRoot/")
+        !mDenied
     }
 
     fun runCommand(command: String): String? {
         try {
-            if (mRootAccess) {
+            if (!mDenied || mFirstTry) {
+                mFirstTry = false
 
                 val callback = "/shellCallback/"
 
@@ -52,6 +53,11 @@ class SU private constructor(){
                 while (true) {
                     val line = mReader?.readLine()
 
+                    if (line == null) {
+                        mDenied = true
+                        break
+                    }
+
                     if (line == callback)
                         break
 
@@ -62,7 +68,7 @@ class SU private constructor(){
             }
         }
         catch (e: IOException) {
-            mRootAccess = false
+            mDenied = true
             e.printStackTrace()
         }
 
@@ -80,7 +86,7 @@ class SU private constructor(){
             mProcess?.waitFor()
             mProcess?.destroy()
 
-            mRootAccess = false
+            mDenied = false
         }
         catch (e: InterruptedException) {
             e.printStackTrace()
