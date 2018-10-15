@@ -1,9 +1,9 @@
 package com.arttttt.smokekerneltweaks.utils.su
 
-import com.arttttt.smokekerneltweaks.base.SingletonHolder
+import com.arttttt.smokekerneltweaks.base.NewInstanceCreator
 
-class RootFile private constructor(){
-    companion object : SingletonHolder<RootFile>(::RootFile)
+class RootFile private constructor(file: String){
+    companion object : NewInstanceCreator<RootFile, String>(::RootFile)
 
     private val mSu by lazy { SU.getInstance() }
 
