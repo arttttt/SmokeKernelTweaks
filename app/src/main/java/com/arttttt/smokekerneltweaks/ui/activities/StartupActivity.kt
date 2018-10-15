@@ -1,14 +1,14 @@
 package com.arttttt.smokekerneltweaks.ui.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
-import android.support.annotation.LayoutRes
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import com.arttttt.smokekerneltweaks.R
 import com.arttttt.smokekerneltweaks.utils.su.SU
 import kotlinx.android.synthetic.main.activity_startup.*
+import java.lang.ref.WeakReference
 
 class StartupActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,7 +16,7 @@ class StartupActivity: AppCompatActivity() {
         setContentView(R.layout.activity_startup)
 
         if (savedInstanceState == null) {
-            StartupAsyncLoader {rooted ->
+            StartupAsyncLoader(this) { rooted ->
                 statusTextView.setText(if (rooted)
                     R.string.root_access_success
                 else
@@ -32,9 +32,13 @@ class StartupActivity: AppCompatActivity() {
         }
     }
 
-    inner class StartupAsyncLoader(private val mCallback: (Boolean) -> Unit): AsyncTask<Void, Int, Void>() {
+    @SuppressLint("StaticFieldLeak")
+    inner class StartupAsyncLoader(activity: AppCompatActivity, private val mCallback: (Boolean) -> Unit):
+            AsyncTask<Void, Void, Void>() {
 
         private var mRooted = false
+
+        private val activityReference = WeakReference(activity)
 
         override fun doInBackground(vararg params: Void?): Void? {
             val su = SU.getInstance()
@@ -42,19 +46,16 @@ class StartupActivity: AppCompatActivity() {
             su.initSuProcess()
             mRooted = su.getRootAccess()
 
-            Log.d("TEST!", mRooted.toString())
-
-            publishProgress(0)
-
             return null
         }
 
-        override fun onProgressUpdate(vararg values: Int?) {
-            super.onProgressUpdate(*values)
+        override fun onPostExecute(result: Void?) {
+            super.onPostExecute(result)
 
-            when(values[0]) {
-                0 -> mCallback(mRooted)
-            }
+            val activity = activityReference.get()
+            if (activity == null || activity.isFinishing) return
+
+            mCallback(mRooted)
         }
     }
 }
